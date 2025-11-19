@@ -1,0 +1,43 @@
+#include<stdio.h>
+struct movie{
+    char title[50];
+    char genre[30];
+    int year;
+    float rating;
+};
+int main(){
+    struct movie temp;
+    int i,j,n;
+    printf("enter number of movies:");
+    scanf("%d",&n);
+    struct movie movies[i];
+    for(i=0;i<n;i++){
+        printf("Movie title:");
+        scanf("%s",movies[i].title);
+        printf("Enter genre: ");
+        scanf("%s", movies[i].genre); 
+        
+        printf("Enter release year: ");
+        scanf("%d", &movies[i].year); 
+        
+        printf("Enter rating (0.0 to 10.0): ");
+        scanf("%f", &movies[i].rating);
+        printf("\n");
+    }
+    for(i=0;i<n-1;i++){
+        for(j=i+1;j<n;j++){
+        if(movies[i].rating<movies[j].rating){
+            temp=movies[i];
+            movies[i]=movies[j];
+            movies[j]=temp;
+        }
+    }
+    }
+    printf("\n--------------------------------------------------------------------\n");
+    printf("| %-3s | %-25s | %-10s | %-6s | %-6s |\n", "No", "Title", "Genre", "Year", "Rating");
+    printf("---------------------------------------------------------------------\n");
+     for (i = 0; i < n; i++) {
+        printf("| %-3d | %-25s | %-10s | %-6d | %-6.1f |\n",
+               i + 1, movies[i].title, movies[i].genre, movies[i].year, movies[i].rating);
+    }
+}
